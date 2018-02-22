@@ -1,0 +1,87 @@
+<!--  
+  Imagenes: las imagenes deben estar guardado en la carpeta assets/imgs/
+  la imagen debe tener el nombre:  "textoEscaneado.jpg"
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title></ion-title>
+  </ion-navbar> 
+	
+</ion-header>
+
+
+<ion-content padding="true" class="has-header">
+<p style="color:#000000;font-size:18px;text-align:center">
+        <strong>{{nombre}}</strong></p>
+	
+   
+   <div style="margin: 0px; line-height: 250px; background-color: rgb(232, 235, 239); text-align: center;">
+      <i class="icon ion-image" style="font-size: 64px; color: rgb(136, 136, 136); vertical-align: middle;"></i>
+	</div>
+
+
+
+ 
+   <div *ngIf="nombreEspecie">
+
+
+		 <!-- <img src = "assets/imgs/arboles/{{scannedText}}/{{scannedText}}.jpg" style="display: block; width: 100%; height: auto; margin-left: auto; margin-right: auto;"> -->
+
+		<ion-slides pager>
+
+		<ion-slide style="background-color: white"  *ngIf="tieneCantidadDeImagenes(1)" >
+			<img  src = "assets/imgs/arboles/{{nombreEspecie}}/{{nombreEspecie}}.jpg" onerror="this.src='assets/imgs/arboles/arbolGenerico.jpg'" style="display: block; width: 100%; height: 100%; margin-left: auto; margin-right: auto;" class="slide-image"> 
+		</ion-slide>
+
+		<ion-slide style="background-color: white"  *ngIf="tieneCantidadDeImagenes(2)">
+			<img src = "assets/imgs/arboles/{{nombreEspecie}}/{{nombreEspecie}}1.jpg" onerror="this.src='assets/imgs/arboles/arbolGenerico.jpg'" style="display: block;width: 100%; height: 100%; margin-left: auto; margin-right: auto;" class="slide-image">
+		</ion-slide>
+
+		<ion-slide style="background-color: white"  *ngIf="tieneCantidadDeImagenes(3)">
+			<img src = "assets/imgs/arboles/{{nombreEspecie}}/{{nombreEspecie}}2.jpg" onerror="this.src='assets/imgs/arboles/arbolGenerico.jpg'" style="display: block; width: 100%; height: 100%; margin-left: auto; margin-right: auto;" class="slide-image">
+		</ion-slide>
+
+		</ion-slides>
+		
+
+  </div>
+  
+  <ion-card *ngIf="nombreEspecie">
+    <ion-card-content>
+		 
+		<div style="text-align:center;" class="show-list-numbers-and-dots">
+			<p style="color:#000000;font-size:16px;">
+				<strong>{{nombreEspecie}}</strong></p>
+				
+				<div *ngIf="fechaPlantacion">
+					<p style="color:#000000;font-size:12px;">
+						Fecha de plantacíon: {{fechaPlantacion}}</p>
+				</div>
+
+		</div>
+			          	 
+		      <p style="color:#000000;font-size:14px;">
+        {{detalleArbol}}</p>  
+		
+
+
+    </ion-card-content>
+  </ion-card>
+  
+
+	<ion-grid>
+		<ion-row>
+			<!--<ion-col col-3><button ion-button full icon-left (click)="mostrarInformacion()" color="secondary" style="border-radius:10px 10px 10px 10px;" class="button button-positive button-block icon ion-qr-scanner"><ion-icon name="list"></ion-icon>Info</button></ion-col> -->
+			<ion-col col><button ion-button full icon-left (click)="scanCode()"  style="border-radius:10px 10px 10px 10px; margin-right: auto" class="button button-positive button-block "><ion-icon name="qr-scanner"></ion-icon>Ver otro árbol</button></ion-col>
+		</ion-row>
+	</ion-grid>
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ </ion-content>

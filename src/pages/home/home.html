@@ -1,14 +1,54 @@
+
+
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      Árboles CCJMDI
     </ion-title>
+	 
+
+
   </ion-navbar>
+
+
+  
 </ion-header>
 
+
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+
+   <!--<button ion-button full icon-left (click) = "mostrarInformacionDeLaAplicacion()" color="Light"> <ion-icon name="information-circled"></ion-icon>Informacion</button> -->
+  <div>
+	  <div style="text-align:center;" class="show-list-numbers-and-dots">
+        <p style="color:#0D7211;font-size:20px;">Bienvenidos al Bosque de la SGI</p>
+      </div>
+      <img  src="assets/imgs/logoCCJ.png" style="display: block; width: 90%; height: auto; margin-left: auto; margin-right: auto;">
+    </div>
+  <h3 id="aplicacion-heading2"  style="font-size:12px;color:#000000;font-weight:200;text-align:center;">Presione el botón Escanear QR para ver a la información de un árbol</h3>
+
+  <button ion-button full icon-left (click)="scanCode()" [disabled]="!botonActivado" style="border-radius:10px 10px 10px 10px;" class="button button-positive button-block icon ion-qr-scanner"><ion-icon name="qr-scanner"></ion-icon>Escanear QR</button>
+  
+  <div style="text-align:center;" class="show-list-numbers-and-dots">
+  <p style="color:#000000;font-size:12px;">
+        <strong>-2018-</strong></p>
+      <p style="color:#000000;font-size:12px;">
+        "Año de éxitos gloriosos en la nueva era del kosen-rufu mundial"</p>
+		
+
+		
+  </div>
+    
+	
+
+
+
+  
 </ion-content>
+  
+ 
+	
+	
+  
+
+
+	
