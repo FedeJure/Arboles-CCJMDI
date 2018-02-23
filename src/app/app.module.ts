@@ -18,6 +18,8 @@ import { Geolocation } from '@ionic-native/geolocation';
 
 import { HTTP } from '@ionic-native/http';
 
+import { IonicImageViewerModule } from 'ionic-img-viewer';
+
 
 @NgModule({
   declarations: [
@@ -31,6 +33,7 @@ import { HTTP } from '@ionic-native/http';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+	IonicImageViewerModule
 	
 
 

@@ -33,6 +33,8 @@ export class HomePage {
 		
 		//this.chequiarGPS();
 	    this.botonActivado = true;
+		
+
   }
  
  
@@ -63,21 +65,25 @@ export class HomePage {
   }
  
   scanCode() {
-
-
- this.scannedCode = "http://www.sgiar.org.ar/ccjmdi/arboles/arbol.php?id_arbol=29&token=12dfef".split('=',2)[1].split('&',2)[0];
+/*
+ this.scannedCode = "http://www.sgiar.org.ar/ccjmdi/arboles/arbol.php?id_arbol=17&token=12dfef".split('=',2)[1].split('&',2)[0];
 		this.scannedCode --;	
 		let nombreArbol:string = this.nombresArboles[this.scannedCode];		
 		let especieArbol:string = HomePage.infoArboles[nombreArbol].split('_',3)[0];
 		let detalleEspecie:string = HomePage.textosArboles[especieArbol].split('_',2)[1];
+
+		if (especieArbol.search("1") || especieArbol.search("2") || especieArbol.search("3") || especieArbol.search("4")  ){
+			especieArbol = especieArbol.slice(0,-1); //corta el numero en la especie.
+		}
+
 
 		this.navCtrl.push(DetallePage, {
 				especie : especieArbol,
 				detalle: detalleEspecie,
 				homePage:this,
 				nombre: nombreArbol});
-				
-/*		
+	*/		
+	
 			
   this.barcodeScanner.scan().then(barcodeData => {
 		 this.scannedCode = barcodeData.text.split('=',2)[1].split('&',2)[0];
@@ -95,7 +101,8 @@ export class HomePage {
 	
     }, (err) => {
     });
-	*/
+	
+	
 
   }
 	noEstaEnZona(){
@@ -138,21 +145,22 @@ export class HomePage {
   // nombre especia :  cantidad de fotos; detalle especie
   static textosArboles = {
 	'Aromo': '3_Aromo es un árbol proveniente de Australia y Tansania. Crece hasta los 10 a 12 metros de altura. Se caracterizan por tener flores de color amarillo intenso muy perfumadas. Por tal motivo de sus flores se extrae esencia para perfumería. Son de las primeras especies en florecer al inicio de la primavera. Es una especie muy adaptada a condiciones de aridez.',
-	'Roble': '2_El Roble es un árbol robusto que en espesura crece con tronco derecho y limpio sin ramificarse hasta los 15m. Cuando se halla aislado su copa se hace ancha irregular con ramas tortuosas, nudosas y acodadas que proporcionan escasa sombra.',
+	'Roble': '2_El Roble es un árbol de lento y constante crecimiento que puede alcanzar los 25 metros de altura. Su madera, de tipo dura, es una de las más apreciadas. Para todos los pueblos que han conocido al roble, este árbol es sinónimo de fuerza.',
 	'Magnolia': '3_La Magnolia es un árbol que conserva su follaje todo el año, puede llegar a más de 35 m de altura, ramificado desde la extrema base. Sus grandes hojas color verde intenso brillante forman una espesa frondosidad sobre la que destacan sus flores blanco marfil.',
-	'Falso Alcanforero': '2_El Falso Alcanforero es una árbol de gran porte, copa globosa y follaje denso y persistente. Sus hojas persistentes, de color verde brillante, se tornan rojizas en el momento de recanbio parcial. Las flores amarillentas en racimos carecen de gran atractivo. Su fruto es una baya de color verde, de 1 centímetro de diámetro, que luego se torna negro violáceo. Su crecimiento es medianamente rápido; con los años, se transforma en un árbol de gran tamaño, generalmente ramificado desde la base.',
-	'Braquiquito':'3_El Braquiquito es un árbol de talla pequeña o mediana que se distribuye de forma natural en Australia  (de 8-15 m), el tronco engrosado permite el almacenamiento de agua que utiliza para su supervivencia en zonas de clima cálido y seco. Las flores en forma de campana son variables en color (pálido a rosa). ',
-	'Gravillea':'2_Grevillea es un árbol que conserva su follaje durante todo el año, de rápido crecimiento, de 18 a 35 m de altura con hojas verde oscuras delicadamente dentadas y compuestas de fronda de helecho.  Sus flores son doradas naranjas en primavera. Grevillea robusta es usada en la elaboración de instrumentos musicales incluyendo guitarras.',
-	'Ligustro':'2_El Ligustro es un arbol mediano, de 6 a 9 metros. De porte erguido, follaje denso y compacto, a veces ramificado desde la base. Tronco erecto, corteza lisa castaño grisácea. Hojas perdurables, grandes de color verde brillante en la parte superior y claro en la inferior. Flores blancas, perfumadas. Florese a fines de primavera.',
-	'Aguaribay':'3_Es un arból nativo de Argentina  de porte mediano o grande, alcanzando los 10 a 15 m de altura; el fuste es grueso. Los frutos son comestibles teniendo un sabor a la vez dulce y picante al que deben su nombre, muy aromáticos. Es considerada una arbol con propiedades medicinales. ',
+	'Falso Alcanforero': '2_El falso Alcanfor o Alcanforero es una árbol de gran porte originario de los Himalayas. Sus hojas persistentes, de color verde brillante, se tornan rojizas en el momento de recambio parcial. Sus hojas tienen un moderado olor alcanforado. Su crecimiento es medianamente rápido; con los años, se transforma en un árbol de gran tamaño.',
+	'Braquiquito':'3_Es un árbol de talla pequeña o mediana que se distribuye de forma natural en Australia en zonas costeras húmedas. Es un árbol que tiene múltiples usos. Las semillas se pueden comer después de tostarlas.​ La madera es suave y esponjosa y ha sido usada para hacer escudos, y la corteza para fibra. Las hojas son usadas como forraje de emergencia para el ganado en los periodos de sequía.',
+	'Gravillea':'2_Grevillea es un árbol que conserva su follaje durante todo el año, de rápido crecimiento, de 18 a 35 metros de altura con hojas verde oscuras delicadamente dentadas y compuestas de fronda de helecho. Sus flores son doradas naranjas en primavera, de ahí que se lo conoce también como Pno de Oro. La Grevillea robusta es usada en la elaboración de instrumentos musicales incluyendo guitarras.',
+	'Ligustro':'2_El Ligustro es un árbol mediano, de 6 a 9 metros de altura. De porte erguido, follaje denso y compacto, a veces ramificado desde la base. Tronco erecto, corteza lisa castaño grisácea. Hojas perdurables, grandes de color verde brillante en la parte superior y claro en la inferior. Flores blancas y perfumadas. Florese a fines de primavera.',
+	'Aguaribay':'3_Es un arból nativo de Argentina  de porte mediano o grande, alcanzando los 10 a 15 m de altura; el fuste es grueso. Es una especie tolerante a la sequía. Se trata de una planta ampliamente utilizada por la medicina tradicional. ',
 	'Fresno':'2_El Fresno tiene un tamaño mediano ya que alcanza una altura de entre 8 a 12 metros. El tronco es recto y duro con forma cilíndrica, es muy usado como árbol urbano ya que da mucha sombra y se adapta bien a las ciudades; es bastante resistente al frio y al viento, pero no tolera el calor intenso y los climas muy secos. Las hojas son en forma de lanza de color verde oscuro.',
-	'Ginkgo biloba':'2_El Guinko es de porte mediano, puede alcanzar 35 m de altura, con copa estrecha, algo piramidal y formada por uno o varios troncos. Sus ramas, generalmente rectas y empinadas, son gruesas y rígidas. La corteza es de color pardo grisácea o pardo oscura, con surcos y hendiduras muy marcadas. Las hojas, de color verde claro y de entre 5-15 cm, son planas y en forma de abanico.',
-	'Olivo':'El olivo es un árbol pequeño que conserva su follaje todo el año,longevo, que puede alcanzar hasta 15 m de altura, con copa ancha y tronco grueso, de aspecto retorcido. Su corteza es de color gris o plateado. Tiene las hojas opuestas, de 2 a 8 cm de largo, ligeramente puntiagudas, enteras y verdes grises oscuras. Las flores son hermafroditas y su fruto es la aceituna.',
+	'Fresno1':'2_Conocido también como fresno blanco americano, es un árbol que puede alcanzar hasta 35 m de altura. Es nativo del este de Norteamérica.  Se atribuye ciertas propiedades medicinales. Por ejemplo, las raíces son utilizadas como astringentes y las semillas se han usado para la obesidad.',
+	'Ginkgo biloba':'2_El Ginkgo es de porte mediano, puede alcanzar 35 metros de altura. Es un árbol único en el mundo, sin parientes vivos. La especie Ginkgo biloba constituye uno de los mejores ejemplos de relicto o fósil viviente conocidos. Por eso se lo conoce también como Árbol de la Vida, además de sus propiedades medicinales.',
+	'Olivo':'1_El olivo es un árbol pequeño que conserva su follaje todo el año,longevo, que puede alcanzar hasta 15 m de altura, con copa ancha y tronco grueso, de aspecto retorcido. Su corteza es de color gris o plateado. Tiene las hojas opuestas, de 2 a 8 cm de largo, ligeramente puntiagudas, enteras y verdes grises oscuras. Las flores son hermafroditas y su fruto es la aceituna.',
 	'Alamo':'Árbol caducifolio corpulento de forma redondeada y rápido crecimiento, de hasta 30 m de altura y 1 m de diámetro, de forma ancha y columnar, de grueso tronco y sistema radical fuerte, con numerosas raíces secundarias largas que emiten multitud de renuevos. Corteza lisa, blanquecina, gris, fisurada, más oscura en la base, con las cicatrices negruzcas de antiguas ramas.',
-	'Cerezo':'2_El cerezo es conocido como cerezo de flor japonés, es una especie de cerezo nativo de Japón, Corea y China. Se utiliza como ornamental por su floración primaveral. Se cultiva ampliamente como árbol ornamental por su bella floración, tanto en sus países nativos como en las regiones templadas del mundo. ',
+	'Cerezo':'2_El Cerezo es conocido como Sakura de flor japonés, es una especie nativa del Japón, Corea y China. Se cultiva ampliamente como árbol ornamental por su bella floración, en países de todo el mundo. Las flores surgen en primavera, formando grupos racimosos de 2 a 5, al mismo tiempo que aparecen las nuevas hojas. Varían en color desde blanco a rosado.',
 	'Liquidambar':'El liquidámbar es uno de los árboles más bonitos y representativos del otoño en los países donde se dan las cuatro estaciones Los llamativos colores que brinda, convierten al liquidámbar en un árbol muy buscado para decorar plazas y jardines.  Tiene una altura promedio  de 10 a 40 metros y una anchura de unos 10 metros. Al principio, el liquidámbar tarda bastante en desarrollarse, pero luego del tercer o cuarto año de sembrado el proceso se hace mucho más rápido. Cuando llega a la edad madura se estanca.',
 	'Aromo Frances':'El Aromo Frances es un árbol de tamaño mediano, de rápido crecimiento. Presenta el follaje muy recortado, con aspecto ligero y plumoso, grisáceo al igual que el tronco. Las flores, amarillas y muy fragantes, aparecen en abundancia a fines del invierno.',
-	'Jacaranda':'2_Es un arbol nativo de Argentina puede alcanzar los 30 metros de altura.  Florece dos veces por año, en primavera y otoño, produciendo inflorescencias racimosas de flores de color azul violáceo y forma tubular . Es un arbol caristico de la ciudad capital de Argentina.'
+	'Jacaranda':'2_Es un árbol nativo de Argentina que puede alcanzar los 30 metros de altura.  Florece dos veces por año, en primavera y otoño, produciendo inflorescencias racimosas de flores de color azul violáceo y forma tubular . Es un arbol caristico de la ciudad capital de Argentina.'
 	}
 
   
