@@ -1,20 +1,22 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
-import {DetallePage} from '../../pages/detalle/detalle';
+import {  DetallePage } from '../../pages/detalle/detalle';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { Geolocation } from '@ionic-native/geolocation';
 import { AlertController } from 'ionic-angular';
 
 
+
 @Component({
   selector: 'page-home',
-  templateUrl: 'home.html'
+  templateUrl: 'home.html',
+  
 })
 
 export class HomePage {
   //nombresArboles :string[]=['Roble','Magnolia','Aromo','Falso Alcanforero','Braquiquito','Grevillea','Ligustro','Aguaribay','Fresno','Ginkgo Biloba','Olivo','Alamo','Cerezo','Liquidambar','Aromo Frances','Jacaranda'];
-  nombresArboles :string[]=['Daisaku Ikeda','Kaneko Ikeda','Maestro Josei Toda','Soka Gakkai','División Futuro','División de Jóvenes','Maestro Tsunesaburo Makiguchi','División Juvenil Masculina','Soka Gakkai de la Argentina','División Juvenil Femenina','Centro Internacional Daisaku Ikeda de Estudio para la Paz CIDIEP','CIDIEP','Dr. Francisco Delich','Dr. Roberto Agarie','Región Oeste','Familia Braun Billinghurst','Sr. Juan Luis Linares','Familia Tawara','Región 3','División de Estudiantes Secundarios','Grupo 70° Aniversario','Provincia de San Juan','Ciudad de Rosario','Provincia de Neuquén','Provincia de Córdoba','Provincia de Tucumán','Divisón Femenina','Familia Num','70° Aniversario del ingreso de Ikeda Sensei a la Soka Gakkai','Grupo País del Plata','Familia Montoneri - Pate','Grupo Dulce Melodía Kotekitai','Grupo Cosmopolita Ongakutai','Coordinadora Gran Argentina','Coordinadora Gran Argentina','FLIA JAMES'];
+  nombresArboles :string[]=['Daisaku Ikeda','Kaneko Ikeda','Maestro Josei Toda','Soka Gakkai','División Futuro','División de Jóvenes','Maestro Tsunesaburo Makiguchi','División Juvenil Masculina','Soka Gakkai de la Argentina','División Juvenil Femenina','Centro Internacional Daisaku Ikeda de Estudio para la Paz CIDIEP','CIDIEP','Dr. Francisco Delich','Dr. Roberto Agarie','Región Oeste','Familia Braun Billinghurst','Sr. Juan Luis Linares','Familia Tawara','Región 3','División de Estudiantes Secundarios','Grupo 70° Aniversario','Provincia de San Juan','Ciudad de Rosario','Provincia de Neuquén','Provincia de Córdoba','Provincia de Tucumán','Divisón Femenina','Familia Num','70° Aniversario del ingreso de Ikeda Sensei a la Soka Gakkai','Grupo País del Plata','Familia Montoneri - Pate','Grupo Dulce Melodía Kotekitai','Grupo Cosmopolita Ongakutai','Coordinadora Gran Argentina','Coordinadora Gran Argentina','Flia. James Frenkel','Hiromasa Ikeda'];
   
   //decrece para la izquierda y para arriva
   rangoGPS = {'longitudDerecha': -34.923840  ,'longitudIzquierda':-34.923809, 'latitudArriva':  -58.668049 , 'latitudAbajo':-58.668033};
@@ -25,6 +27,8 @@ export class HomePage {
   
   botonActivado = false;
   alert:AlertController;
+
+
   
   constructor(private barcodeScanner: BarcodeScanner, public navCtrl: NavController, public orientation:ScreenOrientation, private geolocation: Geolocation, private alertController:AlertController) {
 		this.alert = alertController;
@@ -33,7 +37,11 @@ export class HomePage {
 		
 		//this.chequiarGPS();
 	    this.botonActivado = true;
-		
+		/*
+		const text = (<any>data).nombre_arbol;
+		console.log(text);
+		*/
+		  
 
   }
  
@@ -65,24 +73,24 @@ export class HomePage {
   }
  
   scanCode() {
-/*
- this.scannedCode = "http://www.sgiar.org.ar/ccjmdi/arboles/arbol.php?id_arbol=17&token=12dfef".split('=',2)[1].split('&',2)[0];
+
+		
+		this.scannedCode = "http://www.sgiar.org.ar/ccjmdi/arboles/arbol.php?id_arbol=37&token=12dfef".split('=',2)[1].split('&',2)[0];
 		this.scannedCode --;	
 		let nombreArbol:string = this.nombresArboles[this.scannedCode];		
 		let especieArbol:string = HomePage.infoArboles[nombreArbol].split('_',3)[0];
 		let detalleEspecie:string = HomePage.textosArboles[especieArbol].split('_',2)[1];
-
-		if (especieArbol.search("1") || especieArbol.search("2") || especieArbol.search("3") || especieArbol.search("4")  ){
-			especieArbol = especieArbol.slice(0,-1); //corta el numero en la especie.
-		}
-
-
+		
 		this.navCtrl.push(DetallePage, {
 				especie : especieArbol,
 				detalle: detalleEspecie,
 				homePage:this,
 				nombre: nombreArbol});
-	*/		
+        
+			
+
+    
+		
 	
 			
   this.barcodeScanner.scan().then(barcodeData => {
@@ -101,6 +109,7 @@ export class HomePage {
 	
     }, (err) => {
     });
+	
 	
 	
 
@@ -160,7 +169,8 @@ export class HomePage {
 	'Cerezo':'2_El Cerezo es conocido como Sakura de flor japonés, es una especie nativa del Japón, Corea y China. Se cultiva ampliamente como árbol ornamental por su bella floración, en países de todo el mundo. Las flores surgen en primavera, formando grupos racimosos de 2 a 5, al mismo tiempo que aparecen las nuevas hojas. Varían en color desde blanco a rosado.',
 	'Liquidambar':'El liquidámbar es uno de los árboles más bonitos y representativos del otoño en los países donde se dan las cuatro estaciones Los llamativos colores que brinda, convierten al liquidámbar en un árbol muy buscado para decorar plazas y jardines.  Tiene una altura promedio  de 10 a 40 metros y una anchura de unos 10 metros. Al principio, el liquidámbar tarda bastante en desarrollarse, pero luego del tercer o cuarto año de sembrado el proceso se hace mucho más rápido. Cuando llega a la edad madura se estanca.',
 	'Aromo Frances':'El Aromo Frances es un árbol de tamaño mediano, de rápido crecimiento. Presenta el follaje muy recortado, con aspecto ligero y plumoso, grisáceo al igual que el tronco. Las flores, amarillas y muy fragantes, aparecen en abundancia a fines del invierno.',
-	'Jacaranda':'2_Es un árbol nativo de Argentina que puede alcanzar los 30 metros de altura.  Florece dos veces por año, en primavera y otoño, produciendo inflorescencias racimosas de flores de color azul violáceo y forma tubular . Es un arbol caristico de la ciudad capital de Argentina.'
+	'Jacaranda':'2_Es un árbol nativo de Argentina que puede alcanzar los 30 metros de altura.  Florece dos veces por año, en primavera y otoño, produciendo inflorescencias racimosas de flores de color azul violáceo y forma tubular . Es un arbol caristico de la ciudad capital de Argentina.',
+  'Ombú':'1_El Ombú es una planta de gran porte, y es confundido en muchas ocasiones con un árbol, sin embargo, se trata de una planta herbácea.  El ombú crece de manera silvestre en la región de la llanura pampeana de Argentina y es vinculada con la frondosa sobra que ofrece. En los años coloniales los gauchos solían construir sus viviendas al amparo de su enorme copa. Es utilizado muchas veces como punto referencia en las vastas llanuras pampeanas.'
 	}
 
   
@@ -199,7 +209,8 @@ export class HomePage {
 	  'Grupo Dulce Melodía Kotekitai':'Magnolia_24/09/2017_',
 	  'Grupo Cosmopolita Ongakutai':'Olivo_24/09/2017_',
 	  'Coordinadora Gran Argentina':'Roble_04/11/17_',
-	  'Flia. James Frenkel':'Jacaranda_04/02/2018_'
+	  'Flia. James Frenkel':'Jacaranda_04/02/2018_',
+    'Hiromasa Ikeda':'Ombú_25/02/2018'
 	  
   }
 
