@@ -74,7 +74,9 @@ export class HomePage {
  
   scanCode() {
 
+
 		/*
+
 		this.scannedCode = "http://www.sgiar.org.ar/ccjmdi/arboles/arbol.php?id_arbol=37&token=12dfef".split('=',2)[1].split('&',2)[0];
 		this.scannedCode --;	
 		let nombreArbol:string = this.nombresArboles[this.scannedCode];		
@@ -86,8 +88,9 @@ export class HomePage {
 				detalle: detalleEspecie,
 				homePage:this,
 				nombre: nombreArbol});
-        
+
 			*/
+
 
     
 		
@@ -109,6 +112,7 @@ export class HomePage {
 	
 			}, (err) => {
 			});
+	
 	
 	
 	
@@ -171,6 +175,7 @@ export class HomePage {
 	'Aromo Frances':'El Aromo Frances es un árbol de tamaño mediano, de rápido crecimiento. Presenta el follaje muy recortado, con aspecto ligero y plumoso, grisáceo al igual que el tronco. Las flores, amarillas y muy fragantes, aparecen en abundancia a fines del invierno.',
 	'Jacaranda':'2_Es un árbol nativo de Argentina que puede alcanzar los 30 metros de altura.  Florece dos veces por año, en primavera y otoño, produciendo inflorescencias racimosas de flores de color azul violáceo y forma tubular . Es un arbol caristico de la ciudad capital de Argentina.',
 	'Ombú':'1_El Ombú es una planta de gran porte, y es confundido en muchas ocasiones con un árbol, sin embargo, se trata de una planta herbácea.  El ombú crece de manera silvestre en la región de la llanura pampeana de Argentina y es vinculada con la frondosa sobra que ofrece. En los años coloniales los gauchos solían construir sus viviendas al amparo de su enorme copa. Es utilizado muchas veces como punto referencia en las vastas llanuras pampeanas.'
+
 	}
 
   
@@ -211,7 +216,6 @@ export class HomePage {
 	  'Coordinadora Gran Argentina':'Roble_04/11/17_',
 	  'Flia. James Frenkel':'Jacaranda_04/02/2018_',
 	  'Hiromasa Ikeda':'Ombú_25/02/2018'
-	  
   }
 
  
