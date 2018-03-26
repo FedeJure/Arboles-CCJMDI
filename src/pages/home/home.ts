@@ -74,7 +74,9 @@ export class HomePage {
  
   scanCode() {
 
-		
+
+		/*
+
 		this.scannedCode = "http://www.sgiar.org.ar/ccjmdi/arboles/arbol.php?id_arbol=37&token=12dfef".split('=',2)[1].split('&',2)[0];
 		this.scannedCode --;	
 		let nombreArbol:string = this.nombresArboles[this.scannedCode];		
@@ -86,29 +88,31 @@ export class HomePage {
 				detalle: detalleEspecie,
 				homePage:this,
 				nombre: nombreArbol});
-        
-			
+
+			*/
+
 
     
 		
 	
 			
-  this.barcodeScanner.scan().then(barcodeData => {
-		 this.scannedCode = barcodeData.text.split('=',2)[1].split('&',2)[0];
-		this.scannedCode --;	
-		let nombreArbol:string = this.nombresArboles[this.scannedCode];		
-		let especieArbol:string = HomePage.infoArboles[nombreArbol].split('_',3)[0];
-		let detalleEspecie:string = HomePage.textosArboles[especieArbol].split('_',2)[1];
+		this.barcodeScanner.scan().then(barcodeData => {
+			this.scannedCode = barcodeData.text.split('=',2)[1].split('&',2)[0];
+			this.scannedCode --;	
+			let nombreArbol:string = this.nombresArboles[this.scannedCode];		
+			let especieArbol:string = HomePage.infoArboles[nombreArbol].split('_',3)[0];
+			let detalleEspecie:string = HomePage.textosArboles[especieArbol].split('_',2)[1];
 		
-		this.navCtrl.push(DetallePage, {
+			this.navCtrl.push(DetallePage, {
 				especie : especieArbol,
 				detalle: detalleEspecie,
 				homePage:this,
 				nombre: nombreArbol});
 				
 	
-    }, (err) => {
-    });
+			}, (err) => {
+			});
+	
 	
 	
 	
@@ -170,7 +174,8 @@ export class HomePage {
 	'Liquidambar':'El liquidámbar es uno de los árboles más bonitos y representativos del otoño en los países donde se dan las cuatro estaciones Los llamativos colores que brinda, convierten al liquidámbar en un árbol muy buscado para decorar plazas y jardines.  Tiene una altura promedio  de 10 a 40 metros y una anchura de unos 10 metros. Al principio, el liquidámbar tarda bastante en desarrollarse, pero luego del tercer o cuarto año de sembrado el proceso se hace mucho más rápido. Cuando llega a la edad madura se estanca.',
 	'Aromo Frances':'El Aromo Frances es un árbol de tamaño mediano, de rápido crecimiento. Presenta el follaje muy recortado, con aspecto ligero y plumoso, grisáceo al igual que el tronco. Las flores, amarillas y muy fragantes, aparecen en abundancia a fines del invierno.',
 	'Jacaranda':'2_Es un árbol nativo de Argentina que puede alcanzar los 30 metros de altura.  Florece dos veces por año, en primavera y otoño, produciendo inflorescencias racimosas de flores de color azul violáceo y forma tubular . Es un arbol caristico de la ciudad capital de Argentina.',
-  'Ombú':'1_El Ombú es una planta de gran porte, y es confundido en muchas ocasiones con un árbol, sin embargo, se trata de una planta herbácea.  El ombú crece de manera silvestre en la región de la llanura pampeana de Argentina y es vinculada con la frondosa sobra que ofrece. En los años coloniales los gauchos solían construir sus viviendas al amparo de su enorme copa. Es utilizado muchas veces como punto referencia en las vastas llanuras pampeanas.'
+	'Ombú':'1_El Ombú es una planta de gran porte, y es confundido en muchas ocasiones con un árbol, sin embargo, se trata de una planta herbácea.  El ombú crece de manera silvestre en la región de la llanura pampeana de Argentina y es vinculada con la frondosa sobra que ofrece. En los años coloniales los gauchos solían construir sus viviendas al amparo de su enorme copa. Es utilizado muchas veces como punto referencia en las vastas llanuras pampeanas.'
+
 	}
 
   
@@ -210,8 +215,7 @@ export class HomePage {
 	  'Grupo Cosmopolita Ongakutai':'Olivo_24/09/2017_',
 	  'Coordinadora Gran Argentina':'Roble_04/11/17_',
 	  'Flia. James Frenkel':'Jacaranda_04/02/2018_',
-    'Hiromasa Ikeda':'Ombú_25/02/2018'
-	  
+	  'Hiromasa Ikeda':'Ombú_25/02/2018'
   }
 
  

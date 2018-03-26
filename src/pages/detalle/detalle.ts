@@ -3,7 +3,6 @@ import { IonicPage, NavController, NavParams, AlertController,ModalController } 
 import {HomePage} from '../../pages/home/home';
 import {ModalDetallesPage} from '../../pages/modal-detalles/modal-detalles';
 
-import { HTTP } from '@ionic-native/http';
 
 
 /**
@@ -24,13 +23,13 @@ export class DetallePage {
 	detalleArbol:string = "detalle del arbol";
 	homePage: HomePage;
 	nombre: string = 'nombre del arbol';
-	http:HTTP;
 	fechaPlantacion:string;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public alert:AlertController, private modal : ModalController, private Http:HTTP) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alert:AlertController, private modal : ModalController) {
 	this.navParam = navParams;
-	this.http = this.Http;
 	
-	this.nombreEspecie = this.navParam.get('especie');
+	
+	
+	  this.nombreEspecie = this.navParam.get('especie');
 	  this.detalleArbol = this.navParam.get('detalle');
 	  this.homePage = this.navParam.get('homePage');
 	  this.nombre = this.navParam.get('nombre');
