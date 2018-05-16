@@ -7,6 +7,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { DetallePage } from '../pages/detalle/detalle';
+import { InfoPage } from '../pages/info/info';
 import { ModalDetallesPage } from '../pages/modal-detalles/modal-detalles';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { Geolocation } from '@ionic-native/geolocation';
@@ -20,7 +21,8 @@ import { IonicImageViewerModule } from 'ionic-img-viewer';
   declarations: [
 	MyApp,
     HomePage,
-	DetallePage,
+  DetallePage,
+  InfoPage,
 	ModalDetallesPage
   ],
   imports: [
@@ -32,7 +34,8 @@ import { IonicImageViewerModule } from 'ionic-img-viewer';
   entryComponents: [
     MyApp,
     HomePage,
-	DetallePage,
+  DetallePage,
+  InfoPage,
 	ModalDetallesPage
   ],
   providers: [

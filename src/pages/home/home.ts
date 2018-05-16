@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import {  DetallePage } from '../../pages/detalle/detalle';
+import { InfoPage } from '../../pages/info/info';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { Geolocation } from '@ionic-native/geolocation';
 import { AlertController } from 'ionic-angular';
@@ -75,9 +76,9 @@ export class HomePage {
   scanCode() {
 
 
-		/*
+		
 
-		this.scannedCode = "http://www.sgiar.org.ar/ccjmdi/arboles/arbol.php?id_arbol=37&token=12dfef".split('=',2)[1].split('&',2)[0];
+		this.scannedCode = "http://www.sgiar.org.ar/ccjmdi/arboles/arbol.php?id_arbol=2&token=12dfef".split('=',2)[1].split('&',2)[0];
 		this.scannedCode --;	
 		let nombreArbol:string = this.nombresArboles[this.scannedCode];		
 		let especieArbol:string = HomePage.infoArboles[nombreArbol].split('_',3)[0];
@@ -89,7 +90,7 @@ export class HomePage {
 				homePage:this,
 				nombre: nombreArbol});
 
-			*/
+			
 
 
     
@@ -150,6 +151,11 @@ export class HomePage {
     });
 	
     alert.present();
+  }
+
+  paginaInformacion(){
+	this.navCtrl.push(InfoPage, (err) => {
+	});
   }
   
 

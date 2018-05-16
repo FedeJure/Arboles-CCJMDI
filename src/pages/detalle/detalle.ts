@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController,ModalController } from 'ionic-angular';
+import { Component, ViewChild  } from '@angular/core';
+import { IonicPage, NavController, NavParams, AlertController,ModalController, Slides } from 'ionic-angular';
 import {HomePage} from '../../pages/home/home';
 import {ModalDetallesPage} from '../../pages/modal-detalles/modal-detalles';
 
@@ -17,6 +17,7 @@ import {ModalDetallesPage} from '../../pages/modal-detalles/modal-detalles';
   selector: 'page-detalle',
   templateUrl: 'detalle.html',
 })
+
 export class DetallePage {
 	navParam :NavParams;
 	nombreEspecie:string= 'nombre especie del arbol';
@@ -24,16 +25,15 @@ export class DetallePage {
 	homePage: HomePage;
 	nombre: string = 'nombre del arbol';
 	fechaPlantacion:string;
+	@ViewChild(Slides) slide: Slides;
   constructor(public navCtrl: NavController, public navParams: NavParams, public alert:AlertController, private modal : ModalController) {
 	this.navParam = navParams;
+	this.nombreEspecie = this.navParam.get('especie');
+	this.detalleArbol = this.navParam.get('detalle');
+	this.homePage = this.navParam.get('homePage');
+	this.nombre = this.navParam.get('nombre');
+	this.fechaPlantacion = HomePage.infoArboles[this.nombre].split('_',3)[1];
 	
-	
-	
-	  this.nombreEspecie = this.navParam.get('especie');
-	  this.detalleArbol = this.navParam.get('detalle');
-	  this.homePage = this.navParam.get('homePage');
-	  this.nombre = this.navParam.get('nombre');
-	  this.fechaPlantacion = HomePage.infoArboles[this.nombre].split('_',3)[1];
 	
   }
 
@@ -49,7 +49,7 @@ export class DetallePage {
 	
   }
   scanCode(){
-	  this.navCtrl.pop();
+	this.navCtrl.pop();
 	this.homePage.scanCode();
 
 
@@ -77,7 +77,13 @@ export class DetallePage {
 	  }
 	  return false;
   }
-  
+
+  siguienteSlide() {
+	  this.slide.slideNext(500,true);	  
+  }
+  anteriorSlide() {
+	  this.slide.slidePrev(500,true);
+  }
   
   
 
