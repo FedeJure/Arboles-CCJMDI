@@ -77,7 +77,7 @@ export class HomePage {
 
 
 		
-
+/*
 		this.scannedCode = "http://www.sgiar.org.ar/ccjmdi/arboles/arbol.php?id_arbol=2&token=12dfef".split('=',2)[1].split('&',2)[0];
 		this.scannedCode --;	
 		let nombreArbol:string = this.nombresArboles[this.scannedCode];		
@@ -91,7 +91,7 @@ export class HomePage {
 				nombre: nombreArbol});
 
 			
-
+*/
 
     
 		
